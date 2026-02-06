@@ -1,0 +1,941 @@
+/* ========== Base ========== */
+:root{
+  --bg:#f2f4f6;
+  --surface:#ffffff;
+  --ink:#08354a;
+  --ink-soft:#36586b;
+  --muted:#6f838f;
+  --line:#d6dfe5;
+  --brand:#08354a;
+  --brand-2:#0f4c68;
+  --accent:#f39b45;
+
+  --radius:10px;
+  --max:1060px;
+  --shadow:0 8px 24px rgba(6, 36, 49, .08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.5;
+}
+
+img,iframe{max-width:100%}
+a{text-decoration:none;color:inherit}
+.container{width:min(var(--max),92%);margin-inline:auto}
+.center{text-align:center}
+
+/* ========== Typography ========== */
+h1,h2,h3{margin:0 0 .8rem;line-height:1.12}
+h1{font-size:clamp(1.85rem,3.4vw,2.9rem);max-width:16ch}
+h2{font-size:clamp(1.4rem,2.7vw,2.2rem)}
+h3{font-size:clamp(1.08rem,1.6vw,1.25rem)}
+p{margin:0 0 .9rem;color:var(--ink-soft)}
+.lead{max-width:58ch}
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.7rem;
+  font-weight:700;
+  color:#c7772f;
+  margin-bottom:1rem;
+}
+.muted{color:var(--muted)}
+.max-text{max-width:75ch;margin-inline:auto}
+
+/* ========== Layout ========== */
+.section{padding:4rem 0}
+.section-light{background:#eef2f5}
+.section-dark{background:var(--brand)}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+}
+.stack{display:grid;gap:.9rem}
+
+/* ========== Header fixed ========== */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:saturate(130%) blur(8px);
+  background:color-mix(in srgb, #f2f4f6 86%, transparent);
+  border-bottom:1px solid #dce4ea;
+}
+.nav-wrap{
+  min-height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.logo{display:flex;align-items:center;gap:.55rem;font-weight:800;color:var(--brand)}
+.logo-mark{
+  width:18px;height:18px;border-radius:5px;
+  background:linear-gradient(145deg,#f7ab66,#df8233);
+}
+.menu{display:flex;gap:1rem;align-items:center}
+.menu a{
+  font-size:.92rem;color:#2a4d61;font-weight:600;
+  padding:.45rem .55rem;border-radius:8px;
+  transition:background .25s ease, color .25s ease;
+}
+.menu a:hover{background:#e7eef3;color:var(--brand)}
+@media (max-width:860px){
+  .menu{display:none}
+}
+
+/* ========== Buttons ========== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  background:var(--brand);
+  color:#fff;
+  border-radius:8px;
+  padding:.78rem 1rem;
+  font-weight:700;
+  font-size:.9rem;
+  transition:transform .2s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow:0 6px 18px rgba(8,53,74,.2);
+}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn:active{transform:translateY(0)}
+.btn-sm{padding:.58rem .8rem;font-size:.82rem}
+
+/* ========== Hero ========== */
+.hero-section{padding-top:3rem}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:1.4rem;
+  align-items:center;
+}
+.video-card{
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+.video-embed{background:#0c2f44}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+}
+
+/* ========== Pains ========== */
+.pain-list{display:grid;gap:.65rem;margin-top:1rem}
+.pain-item{
+  display:flex;gap:.65rem;align-items:flex-start;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:.72rem .8rem;
+  background:#fff;
+}
+.pain-list{
+  max-width: 760px;     /* controla largura do bloco */
+  margin: 1rem auto;   /* centraliza horizontalmente */
+}
+.pain-item p{margin:0;color:#24495e}
+.pain-dot{
+  margin-top:.3rem;
+  width:12px;height:12px;min-width:12px;border-radius:3px;
+  border:1px solid #ffd2a4;background:#ffefe0;
+}
+.hint{
+  margin-top:1rem;
+  background:#fff;
+  border:1px solid var(--line);
+  border-left:4px solid var(--brand);
+  border-radius:8px;
+  padding:.8rem .9rem;
+  color:#22485c;
+  max-width: 760px;     /* controla largura do bloco */
+  margin: 1rem auto;   /* centraliza horizontalmente */
+}
+
+/* ========== Pillars ========== */
+.pillars{
+  margin-top:1.2rem;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:.85rem;
+}
+.pillar{padding:1rem}
+.icon{
+  width:38px;height:38px;border-radius:10px;
+  display:grid;place-items:center;
+  background:#e7f0f5;color:var(--brand);font-weight:800;
+}
+blockquote{
+  margin:1.2rem auto 0;
+  padding:1rem 1.2rem;
+  border:2px solid var(--brand);
+  border-radius:10px;
+  max-width:900px;
+  background:#fff;
+  color:var(--brand);
+  font-weight:700;
+}
+@media (max-width:860px){
+  .pillars{grid-template-columns:1fr}
+}
+
+/* ========== Module ========== */
+.module{overflow:hidden}
+.module-head{
+  background:var(--brand);
+  color:#fff;
+  font-weight:700;
+  padding:.7rem .9rem;
+  font-size:.92rem;
+}
+.module ul{margin:0;padding:.85rem 1.4rem 1rem}
+.module li{margin:.25rem 0;color:#31566a}
+
+/* ========== Pricing ========== */
+.pricing{
+  max-width:620px;margin-inline:auto;padding:1.15rem;
+  box-shadow:0 16px 35px rgba(2,17,24,.25);
+  text-align: center;
+}
+.pricing h2{color:var(--ink)}
+.pricing .price{
+  margin:.7rem 0 .2rem;
+  color:var(--brand);
+  font-size:2.2rem;
+  font-weight:800;
+  text-align:center;
+}
+.pricing ul{
+  list-style: none;
+  padding: 0;
+  margin: .6rem auto 1rem;
+  display: inline-block;   /* centraliza o bloco */
+  text-align: left;        /* leitura correta */
+}
+
+.pricing ul li{
+  position: relative;      /* <-- ESSENCIAL */
+  padding-left: 26px;
+  margin: .35rem 0;
+  color:#2c5267;
+}
+
+/* Check laranja ancorado corretamente no item */
+.pricing ul li::before{
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+
+  color: var(--accent);
+  font-weight: 800;
+  font-size: .95rem;
+}
+
+.pricing-note{
+  margin: .6rem auto 0;
+  max-width: 520px;
+
+  font-size: .82rem;
+  line-height: 1.45;
+  color: #6f838f;
+
+  text-align: center;
+}
+/* ========== Accordion FAQ ========== */
+.accordion{
+  max-width:880px;
+  margin:1.2rem auto 0;
+}
+.accordion-item{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  margin-bottom:.7rem;
+  overflow:hidden;
+}
+.accordion-item summary{
+  list-style:none;
+  cursor:pointer;
+  padding:.95rem 1rem;
+  font-weight:700;
+  color:#143b51;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.accordion-item summary::-webkit-details-marker{display:none}
+.accordion-item .content{
+  border-top:1px solid var(--line);
+  padding:.85rem 1rem 1rem;
+  color:#31586e;
+}
+.plus{
+  width:18px;height:18px;min-width:18px;position:relative;
+}
+.plus::before,.plus::after{
+  content:"";
+  position:absolute;left:50%;top:50%;
+  width:14px;height:2px;background:#1f4a61;border-radius:4px;
+  transform:translate(-50%,-50%);
+  transition:transform .25s ease, opacity .25s ease;
+}
+.plus::after{
+  transform:translate(-50%,-50%) rotate(90deg);
+}
+.accordion-item[open] .plus::after{
+  opacity:0;
+  transform:translate(-50%,-50%) rotate(90deg) scale(.3);
+}
+
+.accordion-item .content p{
+  margin: 0 0 .75rem;
+  line-height: 1.55;
+}
+
+.faq-list{
+  list-style: none;
+  padding: 0;
+  margin: .65rem 0 .95rem;
+  display: grid;
+  gap: .55rem;
+}
+
+.faq-list li{
+  position: relative;
+  padding-left: 28px;
+  color: #24495e;
+  line-height: 1.5;
+}
+
+/* Base do ícone */
+.faq-list li::before{
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+/* Variante: check */
+.faq-list.is-check li::before{
+  content: "✓";
+  color: #2e9b57;
+}
+
+/* Variante: X */
+.faq-list.is-x li::before{
+  content: "✕";
+  color: #d84a4a;
+}
+
+/* Variante: arrow */
+.faq-list.is-arrow li::before{
+  content: ">";
+  color: #c7772f;
+}
+
+/* ========== Final ========== */
+.final-title{font-size:clamp(1.9rem,4vw,3.15rem)}
+.footer{
+  border-top:1px solid #d9e2e8;
+  background:#edf2f5;
+}
+.footer-wrap{
+  min-height:58px;display:flex;align-items:center;justify-content:space-between;
+  color:#47667a;font-size:.85rem;
+}
+.footer-wrap a{font-weight:700}
+
+/* ========== Micro-animations ========== */
+@keyframes floatY{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+.float{animation:floatY 5s ease-in-out infinite}
+
+.lift{transition:transform .25s ease, box-shadow .25s ease}
+.lift:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+
+@keyframes popIn{
+  from{opacity:0;transform:scale(.98) translateY(8px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+.pop-in{animation:popIn .5s ease both}
+
+.reveal{
+  opacity:0;
+  transform:translateY(12px);
+  animation:revealUp .65s ease forwards;
+}
+.reveal:nth-of-type(2){animation-delay:.08s}
+.reveal:nth-of-type(3){animation-delay:.12s}
+.reveal:nth-of-type(4){animation-delay:.16s}
+.reveal:nth-of-type(5){animation-delay:.20s}
+.reveal:nth-of-type(6){animation-delay:.24s}
+@keyframes revealUp{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Reduce motion accessibility */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+}
+
+
+/* Added sections to match missing prints */
+.section-tight{padding:2.2rem 0}
+.two-cols-cards{
+  margin: 40px auto 0;
+  max-width: 780px;
+
+  display: grid;
+  grid-template-columns: 1fr;   /* <- muda aqui */
+  gap: 14px;
+}
+.clean-list{margin:0;padding:0;list-style:none;display:grid;gap:.55rem}
+.clean-list li{
+  position: relative;              /* necessário para ::before */
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:.5rem .62rem .5rem 1.9rem;  /* espaço extra à esquerda */
+  color:#24495e;
+  font-size:.92rem;
+}
+.clean-list li::before{
+  content:"✓";
+  position:absolute;
+  left:.6rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:#2e9b57;
+  font-weight:700;
+  font-size:.85rem;
+}
+.mini-check{font-size:.65rem;color:#6b8ca0;margin-right:.45rem}
+
+.why-dark{background:#083d56;color:#ecf4f8}
+.why-dark h2,.why-dark h3{color:#fff}
+.why-sub{color:#c2d8e4}
+.why-list{display:grid;gap:.7rem;margin-top:.9rem}
+.why-box{
+  background:#0f4d69;border:1px solid #3a6f87;border-radius:8px;
+  padding:.75rem .9rem;
+}
+.why-box h3{margin-bottom:.4rem;font-size:1.05rem}
+.why-box ul{margin:.25rem 0 0 1rem}
+.why-box li{margin:.2rem 0;color:#e4eef4}
+.why-bottom-note{
+  margin-top:.8rem;background:#073349;border:1px solid #2d5d74;color:#fff;
+  border-radius:8px;padding:.65rem .8rem;text-align:center;font-weight:700
+}
+
+.journey-cards{display:grid;gap:.55rem;margin-top:.8rem}
+.journey-card{
+  background:#fff;border:1px solid var(--line);border-radius:8px;padding:.65rem .8rem;
+  display:flex;flex-direction:column;gap:.2rem
+}
+.j-tag{
+  display:inline-block;width:max-content;
+  background:#e8f1f5;border:1px solid #c7d9e3;color:#234d62;
+  border-radius:999px;font-size:.65rem;font-weight:700;padding:.1rem .45rem
+}
+.journey-card small{color:#5c7686}
+
+.about-strip{
+  padding:.65rem;display:grid;grid-template-columns:70px 1fr;gap:.8rem;align-items:start
+}
+.author-list{margin:.2rem 0 0 .9rem;color:#49697c}
+
+@media (max-width:860px){
+  .two-cols-cards,.for-grid{grid-template-columns:1fr}
+  .about-strip{grid-template-columns:1fr}
+}
+
+
+/* ===== Pixel fix: seção Para quem é o Gestão 3P ===== */
+/* Não encoste em UL/LI de outras seções */
+#publico .publico-card.ok ul,
+#publico .publico-card.no ul{
+  margin:0;
+  padding-left:0;
+  list-style:none;
+}
+
+#publico .publico-card.ok li,
+#publico .publico-card.no li{
+  position:relative;
+  margin:0 0 5px;
+  padding-left:36px;
+  transition:background-color .15s ease;
+}
+
+/* Base do círculo (apenas OK/NO) */
+#publico .publico-card.ok li::before,
+#publico .publico-card.no li::before{
+  position:absolute;
+  left:0;
+  top:0.1em;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.85em;
+  font-weight:700;
+}
+
+/* OK */
+#publico .publico-card.ok li{
+  color:#0f5e4b !important;
+}
+#publico .publico-card.ok li::before{
+  content:"✓";
+  background:#e6f4f1;
+  color:#0f5e4b;
+}
+#publico .publico-card.ok li:hover{
+  background:rgba(15,94,75,.05);
+  border-radius:6px;
+}
+
+/* NO */
+#publico .publico-card.no li{
+  color:#8b3d3d !important;
+}
+#publico .publico-card.no li::before{
+  content:"✕";
+  background:#f7eaea;
+  color:#8b3d3d;
+}
+#publico .publico-card.no li:hover{
+  background:rgba(139,61,61,.05);
+  border-radius:6px;
+}
+
+#publico .publico-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:16px;
+  align-items:stretch;
+}
+
+/* Garante que cada card ocupe só sua coluna */
+#publico .publico-card{
+  width:100%;
+}
+
+/* ===== Espaçamento da seção Público ===== */
+
+#publico{
+  padding:32px 24px;           /* respiro da seção inteira */
+}
+
+/* Grid com folga lateral consistente */
+#publico .publico-grid{
+  gap:20px;                    /* espaço entre os dois cards */
+}
+
+/* Card: respiro interno + afastamento das bordas */
+#publico .publico-card{
+  padding:20px 22px 22px;      /* padding interno confortável */
+}
+
+/* Título do card */
+#publico .publico-card h3{
+  margin-bottom:12px;          /* separa título da lista */
+}
+
+/* Lista: respiro superior */
+#publico .publico-card ul{
+  margin-top:8px;
+}
+
+/* Itens: leve afastamento vertical */
+#publico .publico-card li{
+  margin-bottom:8px;
+}
+/* ===== Pixel fix: seção Quem está por trás ===== */
+#autor .about-ref{
+  padding:12px 14px !important;
+  border-radius:10px;
+  border:1px solid #c9d6df !important;
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:14px;
+  align-items:center;
+}
+#autor .about-ref .avatar{
+  width:200px;height:200px;border-radius:16px;
+  background:none;
+  overflow:hidden;
+}
+
+#autor .about-ref .avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:inherit;
+}
+
+#autor .about-ref h3{
+  margin:2px 0 8px;
+  font-size:2rem;
+  font-size:clamp(1.5rem,1.5rem,1.5rem);
+  font-size:1.9rem;
+  color:#0b3a53;
+  line-height:1.08;
+}
+#autor .about-ref p{
+  margin:0 0 6px;
+  color:#375c72;
+  font-size:1.04rem;
+  line-height:1.38;
+  max-width:95%;
+}
+#autor .about-ref .author-list{
+  margin:.2rem 0 0 1rem;
+}
+#autor .about-ref .author-list li{
+  color:#5d7888;
+  font-size:.95rem;
+  line-height:1.3;
+  margin:2px 0;
+}
+/* ===== Destaque laranja — Quem está por trás ===== */
+
+#autor .author-highlight{
+  margin:12px 0 10px;
+  padding:.85rem 1rem;
+
+  background:#fff7f0;
+  border-left:4px solid #f39b45;   /* laranja do sistema */
+  border-radius:8px;
+
+  color:#22485c;
+  font-size:1rem;
+  line-height:1.45;
+}
+
+#autor .author-highlight strong{
+  font-weight:800;
+  color:#08354a;
+}
+
+
+/* heading sizes to match reference */
+#publico h2, #autor h2{
+  font-size:55px;
+  font-size:3rem;
+  font-size:clamp(2.45rem,2.45rem,2.45rem);
+  line-height:1.1;
+  margin-bottom:14px;
+  color:#08354a;
+}
+
+@media (max-width: 980px){
+  #publico .publico-grid{grid-template-columns:1fr !important;}
+  #publico h2, #autor h2{font-size:2rem !important;}
+  #publico .publico-card h3{font-size:1.3rem !important;}
+  #autor .about-ref h3{font-size:1.4rem !important;}
+}
+/* ===== Link LinkedIn — Quem está por trás ===== */
+
+#autor .author-linkedin{
+  margin-top:10px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  font-weight:700;
+  font-size:.95rem;
+  color:#0b3a53;
+
+  text-decoration:none;
+}
+
+#autor .author-linkedin:hover{
+  text-decoration:underline;
+}
+
+/* Ícone estilo LinkedIn */
+#autor .author-linkedin .li-icon{
+  width:18px;
+  height:18px;
+  border-radius:3px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#0b3a53;
+  color:#fff;
+
+  font-size:.75rem;
+  font-weight:800;
+  line-height:1;
+}
+
+
+/* ===== Seção: Talvez você já tenha tentado resolver isso antes ===== */
+#tentou{
+  padding-top:3rem;
+  padding-bottom:3.2rem;
+}
+#tentou h2{
+  margin-bottom:1.05rem;
+}
+#tentou .tentou-sub{
+  margin:0;
+  color:#5c7686;
+  font-size:.98rem;
+  line-height:1.55;
+}
+#tentou .tentou-sub + .tentou-sub{
+  margin-top:.2rem;
+}
+#tentou .tentou-card{
+  margin:1.1rem auto 0;
+  max-width:760px;
+  background:#f9fbfc;
+  border:1px solid #cfdbe3;
+  border-radius:8px;
+  padding:.9rem 1rem;
+  color:#2a4f64;
+  line-height:1.45;
+}
+#tentou .tentou-quote{
+  margin:1rem auto 0;
+  max-width:760px;
+  background:#fff;
+  border:2px solid #0b3f57;
+  border-radius:8px;
+  padding:1rem 1.1rem;
+  color:#08354a;
+  font-weight:700;
+  text-align:center;
+}
+
+
+/* ===== Seção: O Gestão 3P é uma jornada ===== */
+#jornada{
+  padding-top:3rem;
+}
+#jornada .jornada-sub{
+  margin-top:-4px;
+  color:#5d7888;
+}
+.timeline-wrap{
+  position:relative;
+  max-width:920px;
+  margin:1rem auto 0;
+  padding-left:34px;
+  display:grid;
+  gap:10px;
+}
+.timeline-line{
+  position:absolute;
+  left:13px;
+  top:8px;
+  bottom:8px;
+  width:2px;
+  background:#bed0dc;
+}
+.timeline-card{
+  position:relative;
+  background:#fff;
+  border:1px solid #c9d6df;
+  border-radius:8px;
+  padding:12px 14px 12px;
+}
+.timeline-card::before{
+  content:"";
+  position:absolute;
+  left:-22px;
+  top:22px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#c5d5df;
+  border:2px solid #f2f4f6;
+}
+.timeline-card.available::before{background:#0a3e57;}
+.timeline-card h3{
+  margin:6px 0 8px;
+  font-size:1.62rem;
+  font-size:1.46rem;
+  line-height:1.2;
+  color:#08354a;
+}
+.timeline-card ul{
+  margin:0;
+  padding-left:18px;
+}
+.timeline-card li{
+  margin:3px 0;
+  color:#2d556b;
+}
+.timeline-card.developing h3,
+.timeline-card.developing li,
+.timeline-card.extra h3,
+.timeline-card.extra p{color:#7c91a0;}
+.timeline-card.developing li::marker{color:#b8c6d0}
+.badge{
+  display:inline-block;
+  font-size:.72rem;
+  font-weight:700;
+  color:#8aa0af;
+  background:#eef3f7;
+  border:1px solid #d7e1e8;
+  padding:3px 8px;
+  border-radius:999px;
+}
+.badge-available{
+  color:#fff;background:#093e57;border-color:#093e57;
+}
+.timeline-card p{
+  margin:4px 0 0;
+  color:#6f8594;
+  line-height:1.35;
+}
+.journey-note{
+  margin:12px auto 0;
+  max-width:920px;
+  background:#fff;
+  border:1px solid #c9d6df;
+  border-radius:8px;
+  padding:12px 14px;
+  text-align:center;
+}
+.journey-note p{
+  margin:2px 0;
+  color:#3e6075;
+}
+.journey-note hr{
+  border:none;
+  border-top:1px solid #d8e2e9;
+  margin:8px 0;
+}
+@media (max-width:860px){
+  .timeline-wrap{padding-left:24px}
+  .timeline-line{left:8px}
+  .timeline-card::before{left:-17px}
+  .timeline-card h3{font-size:1.2rem}
+}
+
+
+/* Card estilo destaque */
+.highlight-box{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 18px;
+  background: #eef2f4;
+  border: 1px solid #dbe3e8;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+
+  /* garante texto escuro mesmo dentro de seção dark */
+  color: #08354a;
+}
+
+.highlight-icon{
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #0f3b4d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+}
+
+.highlight-content h3{
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #08354a;
+}
+
+.highlight-lead{
+  margin-bottom: 14px;
+  color: #36586b;
+}
+
+.highlight-list{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+}
+
+.highlight-list li{
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  color: #08354a;
+  font-weight: 500;
+}
+
+/* Base do marcador (ícone) */
+.highlight-list li::before{
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 800;
+}
+
+/* ===== Variantes de lista ===== */
+
+/* 1) X vermelho (default) */
+.highlight-list.is-x li::before{
+  content: "✕";
+  color: #d84a4a;
+}
+
+/* 2) Setinha (chevron) laranja */
+.highlight-list.is-arrow li::before{
+  content: "›";         /* alternativas: "→" ou "›" */
+  color: #c7772f;
+  top: 1px;             /* alinhamento visual */
+}
+
+/* 3) Check verde */
+.highlight-list.is-check li::before{
+  content: "✓";
+  color: #2e9b57;
+  top: 1px;
+}
+
+.highlight-footer{
+  margin-top: 12px;
+  color: #4f6f80;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+#pratica blockquote{
+  max-width: 680px;
+  padding: .9rem 1rem;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+#metodo blockquote{
+  max-width: 680px;
+  padding: .9rem 1rem;
+  font-size: 1rem;
+  line-height: 1.45;
+}
