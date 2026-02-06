@@ -949,3 +949,21 @@ blockquote{
   font-size: 1rem;
   line-height: 1.45;
 }
+
+@media (max-width: 860px){
+
+  #autor .about-ref{
+    grid-template-columns: 1fr;   /* uma coluna */
+    text-align: center;           /* opcional */
+  }
+
+  #autor .about-ref .avatar{
+    margin: 0 auto 16px;          /* centraliza a foto */
+  }
+
+  #autor .about-ref p,
+  #autor .about-ref .author-list{
+    max-width: 100%;
+  }
+
+}
