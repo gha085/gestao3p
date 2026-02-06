@@ -372,23 +372,33 @@ blockquote{
 }
 .pop-in{animation:popIn .5s ease both}
 
+/* Estado padrão: conteúdo sempre visível */
 .reveal{
-  opacity:0;
-  transform:translateY(12px);
-  animation:revealUp .65s ease forwards;
-}
-.reveal:nth-of-type(2){animation-delay:.08s}
-.reveal:nth-of-type(3){animation-delay:.12s}
-.reveal:nth-of-type(4){animation-delay:.16s}
-.reveal:nth-of-type(5){animation-delay:.20s}
-.reveal:nth-of-type(6){animation-delay:.24s}
-@keyframes revealUp{
-  to{opacity:1;transform:translateY(0)}
+  opacity:1;
+  transform:none;
 }
 
-/* Reduce motion accessibility */
-@media (prefers-reduced-motion: reduce){
-  *{animation:none !important;transition:none !important}
+/* Só anima para quem NÃO usa reduzir movimento */
+@media (prefers-reduced-motion: no-preference){
+
+  .reveal{
+    opacity:0;
+    transform:translateY(12px);
+    animation:revealUp .65s ease forwards;
+  }
+
+  .reveal:nth-of-type(2){animation-delay:.08s}
+  .reveal:nth-of-type(3){animation-delay:.12s}
+  .reveal:nth-of-type(4){animation-delay:.16s}
+  .reveal:nth-of-type(5){animation-delay:.20s}
+  .reveal:nth-of-type(6){animation-delay:.24s}
+
+  @keyframes revealUp{
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
 }
 
 
