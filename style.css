@@ -985,3 +985,15 @@ blockquote{
   color: #c7772f; /* laranja do sistema */
 }
 
+.price-block{
+  margin: 12px 0 6px;
+  text-align: center;
+}
+
+.price-old{
+  margin: 0;
+  font-size: 1.05rem;
+  color: #8fa4b0;
+  text-decoration: line-through;
+  letter-spacing: .5px;
+}
